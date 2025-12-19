@@ -30,7 +30,7 @@ await expect(errorMessage).toHaveText('Epic sadface: Username and password do no
 test ('Login with missing password', async ({ page }) => {
 
 await page.goto('https://www.saucedemo.com/');
- await page.getByRole('textbox', { name: 'Username'}).fill('standard_user');
+await page.getByRole('textbox', { name: 'Username'}).fill('standard_user');
 await page.getByRole('textbox', { name: 'Password' }).fill('');
 await page.getByRole('button', { name: 'Login' }).click();
 
