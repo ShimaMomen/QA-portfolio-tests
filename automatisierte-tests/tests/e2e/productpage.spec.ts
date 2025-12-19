@@ -14,6 +14,14 @@ test('Product page', async ({ page }) => {
   const items = page.locator('.inventory_item');
   await expect(items).toHaveCount(6);
 
+// Verify that each product has an "Add to cart" button
+  const AddToCartButtons = page.locator('.inventory_item').getByRole('button', { name: 'Add to cart' });
+
+  for (let i = 0; i < 6;  i++) {
+    const button = AddToCartButtons.nth(i);
+    await expect(button).toHaveText('Add to cart');  
+  }
+
   
 
  });
