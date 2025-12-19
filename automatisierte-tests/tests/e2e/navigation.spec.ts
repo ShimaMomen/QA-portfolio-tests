@@ -10,14 +10,15 @@ await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
 await page.getByRole('button', { name: 'Login' }).click();
 
 await expect(page).toHaveURL(/dashboard/);
-await expect( page.getByRole('heading', { name: 'Dashboard', level: 6 })).toBeVisible();
-await expect(page.getByRole('navigation', { name: 'Sidepanel' })).toBeVisible();
 await expect(page.getByRole('link', { name: 'Dashboard' })).toHaveClass(/active/);
+await expect( page.getByRole('heading', { name: 'Dashboard', level: 6 })).toBeVisible();
 
+await expect(page.getByRole('navigation', { name: 'Sidepanel' })).toBeVisible();
 //Verify that expected navigation items exist using array:
 const navItems: string[]= ['Admin', 'PIM', 'Leave', 'Time',  'Recruitment', 'My Info', 'Performance', 'Dashboard', 'Directory', 'Maintenance', 'claim', 'Buzz'];
 for (let i = 0; i<navItems.length; i++) {
-  await expect(page.getByRole('link', { name: navItems[i] })).toBeVisible();
+await expect(page.getByRole('link', { name: navItems[i] })).toBeVisible();
+
 }
 
 

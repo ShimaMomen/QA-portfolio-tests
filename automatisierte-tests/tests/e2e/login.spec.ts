@@ -1,43 +1,43 @@
-import { test, expect } from '@playwright/test';
+import { test, expect} from '@playwright/test';
 
-// This file contains three end-to-end tests for the login functionality of the OrangeHRM demo site.
-
-// 1:
-test ('Login with valid credentials', async ({ page }) => {
-
-await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-await page.getByRole('textbox', { name: 'Username' }).fill('Admin');
-await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
-await page.getByRole('button', { name: 'Login' }).click();
-
-await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index');
-
+ //1
+test('Login with valid credentials', async ({ page }) => {
+  await page.goto('https://www.saucedemo.com/');
+  await page.getByRole('textbox', { name: 'Username'}).fill('standard_user');
+  await page.getByRole('textbox', { name: 'Password' }).fill('secret_sauce');
+  await page.getByRole('button', { name: 'Login' }).click();
+  
+  // Check if we are on the correct page after login
+  await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
 });
 
 // 2:
 test ('Login with invalid credentials', async ({ page }) => {
 
-await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-await page.getByRole('textbox', { name: 'Username' }).fill('Admin1');
-await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
+await page.goto('https://www.saucedemo.com/');
+ await page.getByRole('textbox', { name: 'Username'}).fill('standard_user');
+await page.getByRole('textbox', { name: 'Password' }).fill('secret_sauce123');
 await page.getByRole('button', { name: 'Login' }).click();
 
-const errorMessage = page.getByRole('alert');
-await expect(errorMessage).toHaveText('Invalid credentials'); 
+//check for error message
+const errorMessage = page.locator('.error-message-container');
+await expect(errorMessage).toHaveText('Epic sadface: Username and password do not match any user in this service');
 
-
-    });
+});
 
 
 // 3:
 test ('Login with missing password', async ({ page }) => {
 
-await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-await page.getByRole('textbox', { name: 'Username' }).fill('Admin');
-await page.getByRole('textbox', { name: 'Password' }).fill(' ');
+await page.goto('https://www.saucedemo.com/');
+ await page.getByRole('textbox', { name: 'Username'}).fill('standard_user');
+await page.getByRole('textbox', { name: 'Password' }).fill('');
 await page.getByRole('button', { name: 'Login' }).click();
-const requiredfield = page.locator('.oxd-input-field-error-message');
-await expect(requiredfield).toHaveText('Required');
+
+//check for the error message
+const requiredfield = page.locator('.error-message-container');
+await expect(requiredfield).toHaveText('Epic sadface: Password is required');
 
 
-   });
+ });
+
