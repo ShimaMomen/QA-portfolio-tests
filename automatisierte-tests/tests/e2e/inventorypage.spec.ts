@@ -18,7 +18,12 @@ test('Inventory page', async ({ page }) => {
   const addToCartButtons = page.getByRole('button', { name: 'Add to cart' });
   await expect(addToCartButtons).toHaveCount(6);
 
+// Verify that the sorting dropdown is present
+  await page.getByRole('combobox').selectOption('lohi');
+  const firstItem = await page.locator('.inventory_item_price').first().innerText();
+  const firstPrice = parseFloat(firstItem.replace('$', ''));
+  expect(firstPrice).toBe(7.99);
 
-  
+
 
  });
