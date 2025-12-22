@@ -1,15 +1,27 @@
-# OrangeHRM Playwright Automation Framework
+# SauceDemo Playwright Automation Framework
 
-This repository contains a **Playwright + TypeScript** automation framework for the [OrangeHRM](https://opensource-demo.orangehrmlive.com/) demo application. I am using **Page Object Model (POM)** design patterns, reusable test data, and a clean folder structure.
+Dieses Repository enthält ein **Playwright + TypeScript** Testautomatisierungs-Framework für die **SauceDemo** Demo-Webseite:  
+👉 https://www.saucedemo.com/
 
-## Features
+Das Projekt ist Teil meines **QA-Tester-Portfolios** und zeigt meine Kenntnisse im Bereich **End-to-End (E2E) Testautomatisierung** mit modernen Tools und Best Practices.
 
-- Page Object Model (BasePage, LoginPage, DashboardPage, AdminPage)
-- TypeScript + Playwright Test
-- Ready-to-use demo credentials
+---
+
+## 🚀 Framework-Eigenschaften:
+
+- End-to-End (E2E) Tests mit Playwright
+- Testautomatisierung mit TypeScript
+- Page Object Model (POM) Design Pattern  
+- Automatische HTML-Testreports
+- Cross-Browser-Tests (Chromium, Firefox, WebKit)  
+
+## 🧪 Testabdeckung:
+Die automatisierten Tests decken folgende Bereiche der Anwendung ab  
+
+### 🔐 Login-Seite  
+### 🛍️ Produktseite (Inventory)  
+### 🛒 Warenkorb  
+### 💳 Checkout  
 
 
-## Demo Credentials  
-Username: Admin  
-Password: admin123
-
+Die Tests simulieren reale Benutzeraktionen und überprüfen sowohl funktionale als auch UI-bezogene Anforderungen.
