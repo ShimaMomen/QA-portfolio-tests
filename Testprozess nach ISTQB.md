@@ -1,6 +1,6 @@
-# 🧪 Testprozess nach ISTQB – Geburtsdatum Eingabefeld
+# Testprozess nach ISTQB – Geburtsdatum Eingabefeld
 
-## 📌 Projektbeschreibung
+## Projektbeschreibung
 
 In dieser Aufgabe wird der Testprozess gemäß ISTQB für eine funktionale Anforderung beschrieben.
 Ziel ist die Einführung eines neuen Eingabefeldes für das Geburtsdatum eines Patienten in einem medizinischen System.
@@ -12,22 +12,22 @@ Ein Arzt benötigt dringend eine neues Eingabefeld mit dem Geburtsdatum des Pati
 Zur Eingabe der Daten möchte der Kunde, dass die Eingabe des Geburtsdatums über einen separaten Button erfolgt. Sobald der Button „Geburtsdatum eingeben“ gedrückt wird, öffnet sich ein neues kleines Fenster, dieses Fenster soll das Eingabefeld enthalten und nach korrekter Eingabe und mit einem „OK“ – Button wieder geschlossen werden können. Dieser Button „Geburtsdatum eingeben“ soll nur erscheinen, wenn noch kein Geburtsdatum eingetragen wurde, sonst soll der Button „Geburtsdatum ändern“ angezeigt werden. Um das Geburtsdatum zu ändern soll ebenfalls ein Fenster geöffnet werden, das es erlaubt das Geburtsdatum nochmals zu ändern, was wiederum auf Korrektheit geprüft wird und mit „OK“ geschlossen werden kann.  Das Geburtsdatum selbst wird in dem schon bereits vorhandenen Formular auf dem Bildschirm unter der Krankassenmitgliedsnummer angezeigt. Das Feld ist nur editierbar, wenn der entsprechende Button der sich neben dem Geburtsdatum befindet, gedrückt wird.
 
 
-## 📋 Anforderung (Kurzfassung)
+## Anforderung (Kurzfassung)
 
 Ein Arzt benötigt dringend eine neues Eingabefeld mit dem Geburtsdatum des Patienten mit folgenden Eigenschaften:
 
 * Format: **dd.mm.jjjj**
-* Nur numerische Eingaben erlaubt
+* Nur die Eingabe von Zahlen erlauben
 * Wertebereich: **1900 – 2025**
-* Fehlermeldung bei ungültigen Eingaben
-* Eingabe erfolgt über Button („Geburtsdatum eingeben“ / „Geburtsdatum ändern“)
+* Fehlermeldung bei ungültigen Eingaben (1900<    2025>)
+* Eingabe erfolgt über Button („Geburtsdatum eingeben“)
 * Eingabe in separatem Fenster mit „OK“-Button
 * Anzeige im Hauptformular unter der Krankenkassennummer
 * Bearbeitung nur über entsprechenden Button möglich  („Geburtsdatum ändern“)
 
 ---
 
-## 🔍 1. Testanalyse
+## 1. Testanalyse
 
 ### Ziel
 
@@ -45,25 +45,25 @@ Identifikation von testbaren Testbasis und Testbedingungen.
   * „Geburtsdatum ändern“ (wenn vorhanden)
 * Öffnen und Schließen des Eingabefensters
 * Anzeige des Geburtsdatums im Formular
-* Bearbeitbarkeit nur über Button
+* Bearbeitbarkeit nur über Button („Geburtsdatum ändern“)
 
-### Ergebnis der Analyse
+### Testrisiken
 
-Eine strukturierte Liste von Testbedingungen als Grundlage für die Testfälle.
+Hoch: falsche Patientendaten
+Mittel: UI-Fehler (z.B. Button reagiert nicht)
+Niedrig: Eingabebeschränkung
 
 ---
 
-## 🧩 2. Testentwurf
+## 2. Testentwurf
 
-### Ziel
+Eine vollständige Menge an Testfällen mit erwarteten Ergebnissen.
 
-Erstellung konkreter Testfälle basierend auf den Testbedingungen.
-
-### Testdesign-Techniken
+### Testdesign-Techniken (es geht um wie?)
 
 * Äquivalenzklassen
 * Grenzwertanalyse
-* Zustandsbasierter Test
+
 
 ### Beispiel-Testfälle
 
@@ -72,35 +72,47 @@ Erstellung konkreter Testfälle basierend auf den Testbedingungen.
 | TC01     | Eingabe eines gültigen Datums (15.06.2000) | Datum wird akzeptiert        |
 | TC02     | Eingabe < 1900 (01.01.1899)                | Fehlermeldung erscheint      |
 | TC03     | Eingabe > 2025 (01.01.2026)                | Fehlermeldung erscheint      |
-| TC04     | Eingabe mit Buchstaben                     | Eingabe wird abgelehnt       |
+| TC04     | Eingabe mit Falsches Format                  | Eingabe wird abgelehnt       |
 | TC05     | Button „Geburtsdatum eingeben“ sichtbar    | Nur bei leerem Feld sichtbar |
 | TC06     | Fenster öffnet sich nach Button-Klick      | Fenster wird angezeigt       |
 | TC07     | Fenster schließt nach „OK“                 | Fenster wird geschlossen     |
 
-### Ergebnis des Entwurfs
-
-Eine vollständige Menge an Testfällen mit erwarteten Ergebnissen.
 
 ---
 
 ## ⚙️ 3. Testrealisierung
 
-### Ziel
+### Testwerkzeuge
 
-Umsetzung der Testfälle in ausführbare Tests.
+Manuell: Checklisten (Excel/Confluence)
 
-### Aktivitäten
+### Automatisierung
 
-* Erstellung von Testdaten:
+Selenium /Cypress für wiederholbare UI-Tests
 
-  * Gültige Daten (z. B. 12.05.1995)
-  * Ungültige Daten (z. B. 32.13.2020, Buchstaben)
-* Vorbereitung der Testumgebung
-* Dokumentation der Testfälle in Testmanagement-Tool oder Repository
+### Testmanagement
 
-### Ergebnis der Realisierung
+TestRail /Zephyr: Organisation und Nachverfolgung
 
-Fertige, ausführbare Testfälle inklusive Testdaten und Dokumentation.
+### Defect-Tracking
+
+Jira: Fehlererfassung und -verwaltung
+
+### Testumgebung
+
+OS: Windows 11(Praxisstandard)
+Browser: Chrome, Firefox, Edge
+Testinstanz: isolierte Staging-Umgebung
+DB: Testdatenbank (keine Echtdaten)
+Netzwerk: Lokales Testnetz
+
+### Testdaten
+
+Gültige Daten: z. B. 01.01.1900, 31.12.2025
+Grenzwerte: 31.12.1899, 01.01.2026
+Ungültige Formate: Text, Sonderzeichen Leereingabe / nur Leerzeichen
+Sonderfälle: Schaltjahre, z.B. 29.02.2024
+Patienten: ohne & mit vorhandenem Datum
 
 ---
 
@@ -132,13 +144,17 @@ Durchführung der Testfälle und Dokumentation der Ergebnisse.
 
 ---
 
-## 📊 Fazit
+## 📊 Testabschluss
 
-Durch die strukturierte Anwendung des ISTQB-Testprozesses konnte sichergestellt werden, dass alle funktionalen und nicht-funktionalen Anforderungen systematisch überprüft wurden.
-Dies trägt zur Qualitätssicherung und zur frühzeitigen Fehlererkennung bei.
+Testabschlussbericht: 
+Zusammenfassung: Getesteter Umfang, Dauer, Ressourcen
+Testfallstatistik: Bestanden/ Fehlgeschlagen / Geblockt
+Fehlerübersicht: Schweregrad, Status, Verantwortlicher
+Abdeckungsgrad: Anforderungen vs. Testfälle
+Bewertung: Freigabeempfehlung (Go/ No-Go)
 
----
-
-## 💡 Hinweis
-
-Diese Aufgabe wurde im Rahmen einer Weiterbildung erstellt und dient zur Demonstration von Kenntnissen im Bereich Softwaretest nach ISTQB.
+Metriken & Nachbereitung:
+Defektdichte: Anzahl Fehler / Testfall
+Fehleroffen-Quote: Kritisch / Gesamt
+Lessons Learned: Was lief gut? Verbesserungen?
+Archivierung: Testfälle, Logs, Screenshots (Jira, Confluence)
