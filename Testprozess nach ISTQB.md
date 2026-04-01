@@ -12,7 +12,7 @@ Ein Arzt benötigt dringend eine neues Eingabefeld mit dem Geburtsdatum des Pati
 Zur Eingabe der Daten möchte der Kunde, dass die Eingabe des Geburtsdatums über einen separaten Button erfolgt. Sobald der Button „Geburtsdatum eingeben“ gedrückt wird, öffnet sich ein neues kleines Fenster, dieses Fenster soll das Eingabefeld enthalten und nach korrekter Eingabe und mit einem „OK“ – Button wieder geschlossen werden können. Dieser Button „Geburtsdatum eingeben“ soll nur erscheinen, wenn noch kein Geburtsdatum eingetragen wurde, sonst soll der Button „Geburtsdatum ändern“ angezeigt werden. Um das Geburtsdatum zu ändern soll ebenfalls ein Fenster geöffnet werden, das es erlaubt das Geburtsdatum nochmals zu ändern, was wiederum auf Korrektheit geprüft wird und mit „OK“ geschlossen werden kann.  Das Geburtsdatum selbst wird in dem schon bereits vorhandenen Formular auf dem Bildschirm unter der Krankassenmitgliedsnummer angezeigt. Das Feld ist nur editierbar, wenn der entsprechende Button der sich neben dem Geburtsdatum befindet, gedrückt wird.
 
 
-## Anforderung (Kurzfassung)
+## Anforderungen
 
 Ein Arzt benötigt dringend eine neues Eingabefeld mit dem Geburtsdatum des Patienten mit folgenden Eigenschaften:
 
@@ -147,14 +147,14 @@ Durchführung der Testfälle und Dokumentation der Ergebnisse.
 ## 📊 Testabschluss
 
 Testabschlussbericht: 
-Zusammenfassung: Getesteter Umfang, Dauer, Ressourcen
-Testfallstatistik: Bestanden/ Fehlgeschlagen / Geblockt
-Fehlerübersicht: Schweregrad, Status, Verantwortlicher
-Abdeckungsgrad: Anforderungen vs. Testfälle
-Bewertung: Freigabeempfehlung (Go/ No-Go)
+Zusammenfassung: Getesteter Umfang, Dauer, Ressourcen 
+Testfallstatistik: Bestanden/ Fehlgeschlagen / Geblockt 
+Fehlerübersicht: Schweregrad, Status, Verantwortlicher 
+Abdeckungsgrad: Anforderungen vs. Testfälle 
+Bewertung: Freigabeempfehlung (Go/ No-Go) 
 
-Metriken & Nachbereitung:
-Defektdichte: Anzahl Fehler / Testfall
-Fehleroffen-Quote: Kritisch / Gesamt
-Lessons Learned: Was lief gut? Verbesserungen?
-Archivierung: Testfälle, Logs, Screenshots (Jira, Confluence)
+Metriken & Nachbereitung: 
+Defektdichte: Anzahl Fehler / Testfall 
+Fehleroffen-Quote: Kritisch / Gesamt 
+Lessons Learned: Was lief gut? Verbesserungen? 
+Archivierung: Testfälle, Logs, Screenshots (Jira, Confluence) 
